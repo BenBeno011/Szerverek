@@ -1,0 +1,11 @@
+FROM nginx:latest
+
+#proxy
+COPY ./apt.conf /etc/apt/apt.conf
+
+#html
+COPY ./index2.html /usr/share/nginx/html/index.html
+
+#EXPOSE 80
+
+#CMD [ "nginx", "-g", "daemon off;" ]
