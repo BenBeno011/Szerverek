@@ -1,0 +1,28 @@
+FROM node:latest
+
+#PROXY
+
+ARG HTTP_PORXY
+ARG HTTPS_PROXY
+
+ENV HTTP_PROXY=$HTTP_PROXY
+ENV HTTPS_PROXY=$HTTPS_PROXY
+
+# Munkakönyvtár beállítása
+WORKDIR /usr/src/app
+
+# Függőségek másolása
+COPY package*.json ./
+
+# Telepítés
+RUN npm install
+
+# Alkalmazás kód másolása
+COPY . .
+
+# Port megnyitása
+EXPOSE 3000
+
+# Alkalmazás indítása
+CMD ["node", "app.js"]
+

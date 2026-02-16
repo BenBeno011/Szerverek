@@ -1,0 +1,14 @@
+# nginx service
+#
+# replica példa
+#
+# docker compsoe -p mynginx up -d
+#
+
+services:
+  web:
+    image: nginx:latest
+    deploy:
+      replicas: 3
+    ports:
+      - "0:80"
